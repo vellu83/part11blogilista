@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 
 const passwordhider = (body) => {
-    let newBody = { ...body }
+    let newBody = {...body }
     if ('password' in newBody) {
         newBody.password = '***'
     }
@@ -49,7 +49,7 @@ const userExtractor = async(request, response, next) => {
             return response.status(401).json({ error: 'missing token' })
         }
 
-        const decodedT = jwt.verify(token, process.env.SECRET)
+        const decodedT = jwt.verify(token, process.env.SIGNSECRET)
 
         if (!token || !decodedT.id) {
             return response.status(401).json({ error: 'invalid token' })
