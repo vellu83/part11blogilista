@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 
 const passwordhider = (body) => {
-    let newBody = {...body }
+    let newBody = { ...body }
     if ('password' in newBody) {
         newBody.password = '***'
     }
