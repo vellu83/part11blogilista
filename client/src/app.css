@@ -1,0 +1,40 @@
+.message {
+    background-color: green;
+    color: white;
+    border: 3px solid black;
+    border-radius: 3px;
+    padding: 4px;
+    font-size: large;
+    text-align: center;
+}
+
+.warning {
+    background-color: red;
+    color: yellow;
+    border: 3px solid black;
+    border-radius: 3px;
+    padding: 4px;
+    font-size: large;
+    text-align: center;
+}
+
+.blogdetail {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 2px;
+    border: solid;
+    border-width: 2px;
+    margin-bottom: 5px;
+}
+
+.blog {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.delete {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: crimson;
+    font-weight: bold;
+}

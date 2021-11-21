@@ -1,0 +1,4 @@
+{
+    "integrationFolder": "./client/cypress/integration/",
+    "supportFile": "./client/cypress/support/commands.js"
+}

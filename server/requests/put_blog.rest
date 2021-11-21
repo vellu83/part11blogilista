@@ -1,0 +1,9 @@
+PUT http://localhost:3005/api/blogs/61516101f08071feab272ba3
+Content-Type: application/json
+
+{
+    "title":"restPostTestBlogi8",
+    "author":"vellunrestitesti",
+    "url":"www.testi8.com",
+    "likes":"5000"
+}
