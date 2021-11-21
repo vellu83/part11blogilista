@@ -28,13 +28,14 @@
         "lodash": "^4.17.21",
         "mongodb": "^4.1.2",
         "mongoose": "^6.0.7",
+        "eslint-plugin-jest": "^25.2.4",
         "mongoose-unique-validator": "^2.0.3",
         "supertest": "^6.1.6"
     },
     "eslintConfig": {
         "extends": [
-            "react-app"
-
+            "react-app",
+            "react-app/jest"
         ]
     },
     "browserslist": {
@@ -78,7 +79,6 @@
         "eslint-config-react-app": "^6.0.0",
         "eslint-plugin-flowtype": "^5.2.0",
         "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-jest": "^25.2.4",
         "eslint-plugin-jsx-a11y": "^6.3.1",
         "eslint-plugin-react-hooks": "^4.2.0",
         "eslint-plugin-testing-library": "^3.9.2",
