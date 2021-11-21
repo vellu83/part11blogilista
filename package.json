@@ -4,7 +4,7 @@
     "description": "blogilista",
     "main": "index.js",
     "scripts": {
-        "start": "cross-env NODE_ENV=production node index.js",
+        "start": "NODE_ENV=production node index.js",
         "dev": "cross-env NODE_ENV=development nodemon --trace-warnings index.js & node client/scripts/start.js",
         "devfront": "node client/scripts/start.js",
         "build": "node client/scripts/build.js",
