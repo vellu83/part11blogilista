@@ -10,7 +10,6 @@ module.exports = {
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:cypress/recommended',
-        'plugin:jest/recommended'
     ],
     'parserOptions': {
         'ecmaFeatures': { 'jsx': true },
