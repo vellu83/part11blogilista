@@ -29,10 +29,24 @@ jobs:
         run: npm run test
       - name: e2e tests
         uses: cypress-io/github-action@v2
+        env:
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SIGNSECRET: ${{ secrets.SIGNSECRET }}
         with:
           command: npm run cypress
           start: npm run start:test
           wait-on: http://localhost:3003
+      - name: heroku
+        if: ${{ github.event_name == 'push' && !(contains(join(github.event.commits.*.message),'#skip'))}}
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "https://blogapp-68316.herokuapp.com/" 
+          heroku_email: "velimatti.remander@gmail.com"
+          healthcheck: "https://protected-brushlands-04415.herokuapp.com/health"
+          checkstring: "ok"
+          delay: 10
+          rollbackonhealthcheckfailed: true
     
 
     
