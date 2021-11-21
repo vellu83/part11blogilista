@@ -1,6 +1,8 @@
+const config = require('../../../server/utils/config')
+
 beforeEach(function() {
-    cy.request('POST', 'http://localhost:3003/api/testing/reset')
-    cy.visit('http://localhost:3000')
+    cy.request('POST', `http://localhost:${config.PORT}/api/testing/reset`)
+    cy.visit(`http://localhost:${config.PORT}`)
 })
 
 describe('Blog app', function() {
@@ -20,7 +22,7 @@ describe('Login', function() {
             username: 'vellu',
             password: 'salasana'
         }
-        cy.request('POST', 'http://localhost:3003/api/users/', user)
+        cy.request('POST', `http://localhost:${config.PORT}/api/users/`, user)
     })
 
     it('succeeds with correct credentials', function() {
@@ -46,7 +48,7 @@ describe('When logged in', function() {
             username: 'vellu',
             password: 'salasana'
         }
-        cy.request('POST', 'http://localhost:3003/api/users/', user)
+        cy.request('POST', `http://localhost:${config.PORT}/api/users/`, user)
         cy.login(user.username, user.password)
 
     })
@@ -89,7 +91,7 @@ describe('When logged in', function() {
 
     it('blogs in correct order', function() {
         cy.add3Blogs()
-        cy.visit('http://localhost:3000')
+        cy.visit(`http://localhost:${config.PORT}`)
         cy.get('.viewdetail').click({ multiple: true })
         cy.get('.blogdetail').its(0).contains('uusi blogi2')
         cy.get('.blogdetail').its(1).contains('uusi blogi3')

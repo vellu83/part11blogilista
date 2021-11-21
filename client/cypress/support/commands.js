@@ -26,12 +26,15 @@
 
 // rummaa copy-pastea mutta oikasin hieman...
 
+const config = require('../../../server/utils/config')
+
+
 Cypress.Commands.add('login', (username, password) => {
 
-    cy.request('POST', 'http://localhost:3003/api/login', { username, password })
+    cy.request('POST', `http://localhost:${config.PORT}/api/login`, { username, password })
         .then(({ body }) => {
             localStorage.setItem('userdata', JSON.stringify(body))
-            cy.visit('http://localhost:3000')
+            cy.visit(`http://localhost:${config.PORT}`)
         })
 
 })
@@ -40,7 +43,7 @@ Cypress.Commands.add('add3Blogs', () => {
     const user = JSON.parse(localStorage.getItem('userdata'))
 
     const header = { Authorization: `Bearer ${user.token}` }
-    const url = 'http://localhost:3003/api/blogs/'
+    const url = `http://localhost:${config.PORT}/api/blogs/`
 
     const blog = {
         title: 'uusi blogi1',
