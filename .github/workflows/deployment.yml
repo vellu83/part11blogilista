@@ -41,12 +41,26 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "https://blogapp-68316.herokuapp.com/" 
+          heroku_app_name: "blogapp-68316" 
           heroku_email: "velimatti.remander@gmail.com"
-          healthcheck: "https://protected-brushlands-04415.herokuapp.com/health"
+          healthcheck: "https://blogapp-68316.herokuapp.com/health"
           checkstring: "ok"
           delay: 10
           rollbackonhealthcheckfailed: true
+
+bump_version:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Bump version and push tag
+        if: ${{ github.event_name == 'push' && !(contains(join(github.event.commits.*.message),'#skip'))}}
+        uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
     
 
     
