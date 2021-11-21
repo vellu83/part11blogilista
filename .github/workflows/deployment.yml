@@ -43,10 +43,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "blogapp-68316" 
           heroku_email: "velimatti.remander@gmail.com"
-          healthcheck: "https://blogapp-68316.herokuapp.com/health"
-          checkstring: "ok"
-          delay: 10
-          rollbackonhealthcheckfailed: true
 
   bump_version:
     runs-on: ubuntu-18.04
