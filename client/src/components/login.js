@@ -18,7 +18,7 @@ const Login = ({ setUser, updateMessage, user }) => {
             updateMessage(`${user.name } succesfully logged in`,'message')
         } catch (exeption) {
 
-            updateMessage('invalid credentials!','warning')
+            updateMessage('wrong username or password','warning')
 
         }
     }
