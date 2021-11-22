@@ -36,7 +36,7 @@ describe('Login', function() {
         cy.get('#username').type('vellu')
         cy.get('#password').type('väärä')
         cy.get('#submitlogin').click()
-        cy.contains('invalid credentials')
+        cy.contains('wrong username or password')
     })
 
 })
